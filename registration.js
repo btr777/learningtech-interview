@@ -7,4 +7,6 @@ function register_user(username, name, password, success_function, error_functio
         success_function('The user is created successfully!');
         return;
     }
+
+    error_function('No data provided.');
 }
