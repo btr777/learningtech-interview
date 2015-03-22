@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript" type="text/javascript">
+
+function showSuccess(str) {
+	// Show a message in the success span tags, remove any previous error messages
+	document.getElementById('errorMsg').innerHTML = '';
+	document.getElementById('successMsg').innerHTML = str;
+}
+
+function showError(str) {
+	// Show a message in the error span tags, remove any previous success messages
+	document.getElementById('successMsg').innerHTML = '';
+	document.getElementById('errorMsg').innerHTML = str;
+}
+
+function check_data() {
+	// Get data from the form elements and then send to the register_user function
+	var username = document.getElementById('username').value;
+	var realName = document.getElementById('realName').value;
+	var pswd = document.getElementById('pswd').value;
+	register_user(username, realName, pswd, showSuccess, showError);
+}
+
+</script>
+<script src="registration.js"></script>
+<title>Welcome to TalentSprout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body {
+	background-color: #666666;
+	height: 100%;
+	font-family: verdana,arial,sans-serif;
+}
+
+h1, h3 {
+	color: #3D3D3D;
+}
+
+.modalWrapper {
+	width: 400px;
+	height: 600px;
+	margin: 20px auto 0px auto;
+	background-color: #DDDDDD;
+	border: 1px solid #333333;
+	text-align: center;
+}
+
+.innerModal {
+	margin: 10px;
+}
+
+#regForm {
+	width: 270px;
+	padding: 10px;
+	border: 1px solid #888888;
+	text-align: left;
+	margin: 20px auto;
+	background-color: #FFFFFF;
+}
+
+.inputBlock {
+	margin-bottom: 30px;
+}
+
+.inputBlock input {
+	display: block;
+	width: 250px;
+	margin: 5px 0px;
+}
+
+.responseMsg {
+	margin: 20px 0px;
+}
+
+#errorMsg {
+	color: #880000;
+}
+
+#successMsg {
+	color: #008800;
+}
+-->
+</style>
+</head>
+<body>
+
+<div class="modalWrapper">
+	<div class="innerModal">
+
+    <h1>Become a member!</h1>
+
+    <h3>Join our site and reap the benefits.</h3>
+
+    <div id="regForm">
+       <div class="inputBlock">
+          Username
+          <input type="text" id="username" name="username" autocapitalize="off" autocomplete="off" autocorrect="off" />
+       </div>
+
+       <div class="inputBlock">
+          Name
+          <input type="text" id="realName" name="realName" autocapitalize="off" autocomplete="off" autocorrect="off" />
+       </div>
+
+       <div class="inputBlock">
+          Password
+          <input type="password" id="pswd" name="pswd" />
+       </div>
+
+       <button class="registrationButton" onclick="check_data()">Register</button>
+
+       <div class="responseMsg"><span id="errorMsg"></span><span id="successMsg"></span></div>
+    
+    </div><!-- end regForm -->
+
+   </div><!-- end innerModal -->
+</div><!-- end modalWrapper -->
+
+</body>
+</html>
